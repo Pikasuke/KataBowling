@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Spare extends Frame{
 
     public Frame frame;
@@ -12,5 +14,24 @@ public class Spare extends Frame{
     @Override
     public int score() {
         return super.score()+ frame.getBonus();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Spare spare = (Spare) o;
+        return Objects.equals(frame, spare.frame);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), frame);
+    }
+
+    @Override
+    public String toString() {
+        return "Spare{ score " + super.score()+ "  bonusss   "+ super.getBonus() + "}";
     }
 }
