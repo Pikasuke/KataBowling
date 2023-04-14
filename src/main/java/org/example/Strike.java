@@ -10,6 +10,11 @@ public class Strike extends Frame {
         super(shoot1, shoot2);
         this.frame = frame;
     }
+
+    public Strike(Integer score) {
+        super(score);
+    }
+
     @Override
     public int score() {
         return super.score()+ frame.getStrikeBonus();

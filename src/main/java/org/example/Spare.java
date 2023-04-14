@@ -11,6 +11,12 @@ public class Spare extends Frame{
         this.frame = frame;
     }
 
+    public Spare(Integer score) {
+        super(score);
+    }
+
+
+
     @Override
     public int score() {
         return super.score()+ frame.getBonus();

@@ -13,12 +13,13 @@ public class GameTest {
             Frame frame = new Frame(0, 0);
             frames.add(frame);
         }
-        Assertions.assertEquals(frames.size(), Game.extractFrame(List.of(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)).size());
-        Assertions.assertEquals(frames, Game.extractFrame(List.of(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)));
+        List<Integer> matchPoints = List.of(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        Assertions.assertEquals(frames.size(), Game.extractFrame(matchPoints).size());
+        Assertions.assertEquals(frames, Game.extractFrame(matchPoints));
     }
 
     @Test
-    public void anBonusLastFrameGameReturnAListOf9FramesAndBonus() {
+    public void aBonusLastFrameGameReturnAListOf9FramesAndBonus() {
         List<Frame> frames = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             Frame frame = new Frame(0, 0);
@@ -41,7 +42,7 @@ public class GameTest {
         frames.add(new Frame(3, 2));
         Assertions.assertEquals(frames.get(9), new Frame(3, 2));
         Assertions.assertEquals(frames, Game.extractFrame(matchPoints));
-        Assertions.assertEquals(matchPoints.stream().mapToInt(Integer::intValue).sum(), Game.calculateTotalScore(Game.extractFrame(matchPoints)));
+        Assertions.assertEquals(86, Game.calculateTotalScore(Game.extractFrame(matchPoints)));
     }
 
     @Test
@@ -67,8 +68,6 @@ public class GameTest {
         frames.add(eight);
         frames.add(nine);
         frames.add(lastFrame);
-        System.out.println("totot" + frames.get(3).toString());
-        System.out.println("totot" + frames.get(3).score());
         List<Integer> matchPoints = List.of(10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10, 10);
         Assertions.assertEquals(frames.get(9), new LastFrame(10, 10, 10));
         Assertions.assertEquals(30, one.score());

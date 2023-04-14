@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Game {
-    public Game() {
-    }
 
     public static List<Frame> extractFrame(List<Integer> shoots) {
         List<Frame> frames = new ArrayList<>();

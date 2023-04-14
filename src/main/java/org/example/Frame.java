@@ -1,14 +1,20 @@
 package org.example;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Frame {
 
+    private Integer frameScore;
     private int shoot1;
     private int shoot2;
     public Frame(int shoot1, int shoot2) {
         this.shoot1 = shoot1;
         this.shoot2 = shoot2;
+    }
+
+    public Frame (int score) {
+        this.frameScore = score;
     }
     public int score() {
         return shoot1 + shoot2;
@@ -36,6 +42,10 @@ public class Frame {
     @Override
     public String toString() {
         return "Frame{"+ shoot1 + " " + shoot2 +"}";
+    }
+
+    public Integer frameScore() {
+        return this.frameScore;
     }
 }
 
